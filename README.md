@@ -16,7 +16,7 @@ Please download the data from [the competition website](https://biendata.com/com
 
 ### Step 2:Train the model
 You can use the following command to train models for Sent-Track or Bag-Track:
-```python
+```linux
 python baseline.py --bag
 python baseline.py --nobag
 ```
