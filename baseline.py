@@ -25,7 +25,7 @@ tf.app.flags.DEFINE_integer('pos_limit', 15, 'max distance of position embedding
 tf.app.flags.DEFINE_integer('sen_len', 60, 'sentence length')
 tf.app.flags.DEFINE_integer('window', 3, 'window size')
 tf.app.flags.DEFINE_string('model_path', './model', 'save model dir')
-tf.app.flags.DEFINE_string('data_path', '../data/ipre', 'data dir to load')
+tf.app.flags.DEFINE_string('data_path', './data', 'data dir to load')
 tf.app.flags.DEFINE_boolean('bag', True, 'bag level relation extraction')
 tf.app.flags.DEFINE_string('mode', 'train', 'train or test')
 tf.app.flags.DEFINE_float('dropout', 0.5, 'dropout rate')
@@ -89,7 +89,7 @@ class Baseline:
         wordMap['PAD'] = len(wordMap)
         wordMap['UNK'] = len(wordMap)
         word_embed = []
-        for line in open(os.path.join(self.data_path, 'word2vec5.txt')):
+        for line in open(os.path.join(self.data_path, 'word2vec.txt')):
             content = line.strip().split()
             if len(content) != self.word_dim + 1:
                 continue
