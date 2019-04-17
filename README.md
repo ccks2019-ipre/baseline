@@ -11,17 +11,17 @@ numpy
 
 tensorflow 1.12.0
 
-### Step 1:Download data
+### Step 1: Download data
 Please download the data from [the competition website](https://biendata.com/competition/ccks_2019_ipre/data/), then unzip files and put them in ./data/ folder.
 
-### Step 2:Train the model
+### Step 2: Train the model
 You can use the following command to train models for Sent-Track or Bag-Track:
 ```linux
 python baseline.py --nopre_embed -nobag 
 python baseline.py --nopre_embed --bag
 ```
 The model will be stored in ./model/ floder. We also provide large scale unmarked corpus for train word vectors or language mdoels.
-### Step 3:Test the model
+### Step 3: Test the model
 You can use the following command to test models for Sent-Track or Bag-Track:
 ```linux
 python baseline.py --model test --nobag 
