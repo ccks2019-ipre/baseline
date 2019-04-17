@@ -20,13 +20,14 @@ You can use the following command to train models for Sent-Track or Bag-Track:
 python baseline.py --nopre_embed -nobag 
 python baseline.py --nopre_embed --bag
 ```
-The model will be stored in ./model/ floder and predicted results will be stored in result_sent.txt or result_bag.txt. We also provide large scale unmarked corpus for train word vectors or language mdoels.
+The model will be stored in ./model/ floder. We also provide large scale unmarked corpus for train word vectors or language mdoels.
 ### Step 3:Test the model
 You can use the following command to test models for Sent-Track or Bag-Track:
 ```linux
 python baseline.py --model test --nobag 
 python baseline.py --model test --bag
 ```
+Predicted results will be stored in result_sent.txt or result_bag.txt
 ## Evaluation
 We use f1 score as the basic evaluation metric to measure the performance of systems. In our baseline system, we get 0.22 in Sent-track and 0.31 in Bag-Track.
 ## References
