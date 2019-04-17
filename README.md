@@ -6,8 +6,11 @@ We provide a baseline system based on convolutional neural network with selectiv
 ## Getting Started
 ### Environment Requirements
 python 3.6
+
 numpy
+
 tensorflow 1.12.0
+
 ### Step 1:Download data
 Please download the data from [the competition website](https://biendata.com/competition/ccks_2019_ipre/data/), then unzip files and put them in ./data/ folder.
 
