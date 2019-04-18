@@ -24,8 +24,8 @@ The model will be stored in ./model/ floder. We also provide large scale unmarke
 ### Step 3: Test the model
 You can use the following command to test models for Sent-Track or Bag-Track:
 ```linux
-python baseline.py --model test --nobag 
-python baseline.py --model test --bag
+python baseline.py --mode test --nobag 
+python baseline.py --mode test --bag
 ```
 Predicted results will be stored in result_sent.txt or result_bag.txt
 ## Evaluation
