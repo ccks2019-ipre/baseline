@@ -17,10 +17,10 @@ Please download the data from [the competition website](https://biendata.com/com
 ### Step 2: Train the model
 You can use the following command to train models for Sent-Track or Bag-Track:
 ```linux
-python baseline.py --nopre_embed --nobag 
-python baseline.py --nopre_embed --bag
+python baseline.py --nobag 
+python baseline.py --bag
 ```
-The model will be stored in ./model/ floder. We also provide large scale unmarked corpus for train word vectors or language mdoels.
+The model will be stored in ./model/ floder. We provide large scale unmarked corpus for train word vectors or language mdoels.
 ### Step 3: Test the model
 You can use the following command to test models for Sent-Track or Bag-Track:
 ```linux
