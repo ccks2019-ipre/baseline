@@ -5,25 +5,22 @@ We provide a baseline system based on convolutional neural network with selectiv
 
 ## Getting Started
 ### Environment Requirements
-python 3.6
-
-numpy
-
-tensorflow 1.12.0
-
+- python 3.6
+- numpy
+- tensorflow 1.12.0
 ### Step 1: Download data
 Please download the data from [the competition website](https://biendata.com/competition/ccks_2019_ipre/data/), then unzip files and put them in ./data/ folder.
 
 ### Step 2: Train the model
 You can use the following command to train models for Sent-Track or Bag-Track:
-```linux
+```
 python baseline.py --nobag 
 python baseline.py --bag
 ```
 The model will be stored in ./model/ floder. We provide large scale unmarked corpus for train word vectors or language mdoels.
 ### Step 3: Test the model
 You can use the following command to test models for Sent-Track or Bag-Track:
-```linux
+```
 python baseline.py --mode test --nobag 
 python baseline.py --mode test --bag
 ```
