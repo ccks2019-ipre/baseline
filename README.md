@@ -24,7 +24,7 @@ You can use the following command to test models for Sent-Track or Bag-Track:
 python baseline.py --mode test --nobag 
 python baseline.py --mode test --bag
 ```
-Predicted results will be stored in result_sent.txt or result_bag.txt
+Predicted results will be stored in result_sent.txt or result_bag.txt.
 ## Evaluation
 We use f1 score as the basic evaluation metric to measure the performance of systems. In our baseline system, we get about 0.22 f1 score in Sent-track and about 0.31 f1 score in Bag-Track by using word pre-trained word vectors.
 ## References
