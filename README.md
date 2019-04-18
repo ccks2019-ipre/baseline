@@ -29,6 +29,6 @@ python baseline.py --mode test --bag
 ```
 Predicted results will be stored in result_sent.txt or result_bag.txt
 ## Evaluation
-We use f1 score as the basic evaluation metric to measure the performance of systems. In our baseline system, we get 0.22 in Sent-track and 0.31 in Bag-Track.
+We use f1 score as the basic evaluation metric to measure the performance of systems. In our baseline system, we get 0.22 in Sent-track and 0.31 in Bag-Track by using word pre-trained word vectors.
 ## References
 * Lin Y, Shen S, Liu Z, et al. Neural relation extraction with selective attention over instances[C]//Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). 2016, 1: 2124-2133.
