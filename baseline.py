@@ -17,7 +17,7 @@ FLAGS = tf.app.flags.FLAGS
 tf.app.flags.DEFINE_string('cuda', '0', 'gpu id')
 tf.app.flags.DEFINE_boolean('pre_embed', True, 'load pre-trained word2vec')
 tf.app.flags.DEFINE_integer('batch_size', 50, 'batch size')
-tf.app.flags.DEFINE_integer('epochs', 100, 'max train epochs')
+tf.app.flags.DEFINE_integer('epochs', 200, 'max train epochs')
 tf.app.flags.DEFINE_integer('hidden_dim', 300, 'dimension of hidden embedding')
 tf.app.flags.DEFINE_integer('word_dim', 300, 'dimension of word embedding')
 tf.app.flags.DEFINE_integer('pos_dim', 5, 'dimension of position embedding')
@@ -26,10 +26,11 @@ tf.app.flags.DEFINE_integer('sen_len', 60, 'sentence length')
 tf.app.flags.DEFINE_integer('window', 3, 'window size')
 tf.app.flags.DEFINE_string('model_path', './model', 'save model dir')
 tf.app.flags.DEFINE_string('data_path', './data', 'data dir to load')
-tf.app.flags.DEFINE_boolean('bag', True, 'bag level relation extraction')
+tf.app.flags.DEFINE_string('level', 'bag', 'bag level or sentence level, option:bag/sent')
 tf.app.flags.DEFINE_string('mode', 'train', 'train or test')
 tf.app.flags.DEFINE_float('dropout', 0.5, 'dropout rate')
 tf.app.flags.DEFINE_float('lr', 0.001, 'learning rate')
+tf.app.flags.DEFINE_integer('word_frequency', 5, 'minimum word frequency when constructing vocabulary list')
 
 class Baseline:
     def __init__(self, flags):
@@ -44,10 +45,17 @@ class Baseline:
         self.batch_size = flags.batch_size
         self.data_path = flags.data_path
         self.model_path = flags.model_path
-        self.bag = flags.bag
         self.mode = flags.mode
         self.epochs = flags.epochs
         self.dropout = flags.dropout
+        self.word_frequency = flags.word_frequency
+
+        if flags.level == 'sent':
+            self.bag = False
+        elif flags.level == 'bag':
+            self.bag = True
+        else:
+            self.bag = True
 
         self.pos_num = 2 * self.pos_limit + 3
         self.relation2id = self.load_relation()
@@ -104,7 +112,7 @@ class Baseline:
         word_embed = word_embed.astype(np.float32)
         return wordMap, word_embed
 
-    def load_wordMap(self, thre=5):
+    def load_wordMap(self):
         wordMap = {}
         wordMap['PAD'] = len(wordMap)
         wordMap['UNK'] = len(wordMap)
@@ -112,7 +120,7 @@ class Baseline:
         for line in open(os.path.join(self.data_path, 'sent_train.txt')):
             all_content += line.strip().split('\t')[3].split()
         for item in Counter(all_content).most_common():
-            if item[1] > thre:
+            if item[1] > self.word_frequency:
                 wordMap[item[0]] = len(wordMap)
             else:
                 break
@@ -413,6 +421,9 @@ class Baseline:
             sent_dev = self.load_sent('sent_dev.txt')
             max_f1 = 0.0
 
+            if not os.path.isdir(self.model_path):
+                os.mkdir(self.model_path)
+
             for epoch in range(self.epochs):
                 if self.bag:
                     train_batchers = self.data_batcher(sent_train, 'bag_relation_train.txt', padding=False, shuffle=True)
@@ -433,7 +444,7 @@ class Baseline:
                             dev_batchers = self.data_batcher(sent_dev, 'sent_relation_dev.txt', padding=True, shuffle=False)
                         all_preds, all_labels = self.run_dev(sess, dev_batchers)
 
-                        # when calculate f1 score, we don't consider whether NA results are predicted or not.
+                        # when calculate f1 score, we don't consider whether NA results are predicted or not
                         # the number of non-NA answers in test is counted as n_std
                         # the number of non-NA answers in predicted answers is counted as n_sys
                         # intersection of two answers is counted as n_r
@@ -456,6 +467,7 @@ class Baseline:
                             print(tempstr)
 
         else:
+
             path = os.path.join(self.model_path, 'ipre_bag_%d' % self.bag) + '-0'
             tempstr = 'load model: ' + path
             print(tempstr)
