@@ -14,15 +14,15 @@ Please download the data from [the competition website](https://biendata.com/com
 ### Step 2: Train the model
 You can use the following command to train models for Sent-Track or Bag-Track:
 ```
-python baseline.py --nobag 
-python baseline.py --bag
+python baseline.py --level sent 
+python baseline.py --level bag
 ```
 The model will be stored in `./model/` floder. We provide large scale unmarked corpus for train word vectors or language mdoels.
 ### Step 3: Test the model
 You can use the following command to test models for Sent-Track or Bag-Track:
 ```
-python baseline.py --mode test --nobag 
-python baseline.py --mode test --bag
+python baseline.py --mode test --level sent 
+python baseline.py --mode test --level bag
 ```
 Predicted results will be stored in result_sent.txt or result_bag.txt.
 ## Evaluation
