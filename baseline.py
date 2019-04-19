@@ -17,7 +17,7 @@ FLAGS = tf.app.flags.FLAGS
 tf.app.flags.DEFINE_string('cuda', '0', 'gpu id')
 tf.app.flags.DEFINE_boolean('pre_embed', True, 'load pre-trained word2vec')
 tf.app.flags.DEFINE_integer('batch_size', 50, 'batch size')
-tf.app.flags.DEFINE_integer('epochs', 200, 'max train epochs')
+tf.app.flags.DEFINE_integer('epochs', 100, 'max train epochs')
 tf.app.flags.DEFINE_integer('hidden_dim', 300, 'dimension of hidden embedding')
 tf.app.flags.DEFINE_integer('word_dim', 300, 'dimension of word embedding')
 tf.app.flags.DEFINE_integer('pos_dim', 5, 'dimension of position embedding')
@@ -492,6 +492,3 @@ def main(_):
 
 if __name__ == '__main__':
     tf.app.run()
-
-
-
