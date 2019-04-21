@@ -467,7 +467,6 @@ class Baseline:
                             print(tempstr)
 
         else:
-
             path = os.path.join(self.model_path, 'ipre_bag_%d' % self.bag) + '-0'
             tempstr = 'load model: ' + path
             print(tempstr)
