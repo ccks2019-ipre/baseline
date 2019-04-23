@@ -17,7 +17,11 @@ You can use the following command to train models for Sent-Track or Bag-Track:
 python baseline.py --level sent 
 python baseline.py --level bag
 ```
-The model will be stored in `./model/` floder. We provide large scale unmarked corpus for train word vectors or language mdoels.
+The model will be stored in `./model/` floder. We provide large scale unmarked corpus for train word vectors or language mdoels. In baseline system, we use a package named gensim in python to train word vectors, some parameters are set as follows:
+```
+from gensim.models import word2vec
+model = word2vec.Word2Vec(sentences, sg=1, size=300, window=5, min_count=10, negative=5, sample=1e-4, workers=10)
+```
 ### Step 3: Test the model
 You can use the following command to test models for Sent-Track or Bag-Track:
 ```
