@@ -1,3 +1,4 @@
+Data for the shared task is is available at https://github.com/SUDA-HLT/IPRE.
 # A Baseline System For CCKS-2019-IPRE
 
 ## Introduction
