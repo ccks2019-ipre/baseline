@@ -1,5 +1,4 @@
-Data for the shared task is available at https://github.com/SUDA-HLT/IPRE.
-The review paper of the competition is available at https://arxiv.org/abs/1908.11337.
+Data for the shared task is available at https://github.com/SUDA-HLT/IPRE, and the review paper is available at https://arxiv.org/abs/1908.11337.
 # A Baseline System For CCKS-2019-IPRE
 
 ## Introduction
