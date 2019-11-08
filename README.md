@@ -33,4 +33,5 @@ Predicted results will be stored in result_sent.txt or result_bag.txt.
 ## Evaluation
 We use f1 score as the basic evaluation metric to measure the performance of systems. In our baseline system, we get about 0.22 f1 score in Sent-track and about 0.31 f1 score in Bag-Track by using pre-trained word vectors.
 ## References
+* Wang H, He Z, Zhu T, et al. CCKS 2019 Shared Task on Inter-Personal Relationship Extraction[J]. arXiv preprint arXiv:1908.11337, 2019.
 * Lin Y, Shen S, Liu Z, et al. Neural relation extraction with selective attention over instances[C]//Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). 2016, 1: 2124-2133.
